@@ -12,15 +12,20 @@ h1 {
 .row {
   display: grid;
   grid-template-columns: auto 4em;
-  grid-template-rows: 2em 2em 2em;
+  grid-template-rows: auto auto auto;
   grid-template-areas:
     'label label'
     'category category'
     'quantity price';
+  padding: 0.5em;
+  &:nth-child(odd) {
+    background: #eee;
+  }
 }
 
 .label {
   grid-area: label;
+  font-weight: bold;
 }
 .category {
   grid-area: category;
