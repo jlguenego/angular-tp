@@ -1,1 +1,22 @@
-<p>sell works!</p>
+<main>
+  <h1>Vente d'une référence</h1>
+  <div class="detail">
+    <div class="label">{{ reference.currentRef.label }}</div>
+    <div class="category">{{ reference.currentRef.category }}</div>
+    <div class="quantity">En stock : {{ reference.currentRef.quantity }}</div>
+    <div class="price">Prix unitaire : {{ reference.currentRef.price | currency: 'EUR' }}</div>
+  </div>
+  <form [formGroup]="f">
+    <label>
+      <div>Quantité à sortir</div>
+      <input type="number" formControlName="sellQuantity" />
+    </label>
+    <div>
+      <div>Quantité restante en stock après la vente : {{ reference.currentRef.quantity - f.value.sellQuantity}}</div>
+    </div>
+    <div class="buttons">
+      <button type="button" routerLink="/sell-ref/list">Annuler</button>
+      <button type="submit" class="primary" [disabled]="f.invalid">Vendre</button>
+    </div>
+  </form>
+</main>
