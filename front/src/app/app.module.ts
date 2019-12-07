@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { LayoutModule } from './layout/layout.module';
 import { HomeComponent } from './routes/home/home.component';
 import { LegalComponent } from './routes/legal/legal.component';
+import { AddStockModule } from './add-stock/add-stock.module';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { LegalComponent } from './routes/legal/legal.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    LayoutModule
+    LayoutModule,
+    AddStockModule
   ],
   providers: [],
   bootstrap: [AppComponent]
