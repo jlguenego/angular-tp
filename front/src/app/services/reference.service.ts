@@ -42,4 +42,9 @@ export class ReferenceService {
   saveRef() {
     localStorage.setItem('currentRef', JSON.stringify(this.currentRef));
   }
+
+  sell(sellQuantity: number) {
+    this.currentRef.quantity -= sellQuantity;
+    this.saveRef();
+  }
 }

@@ -6,7 +6,7 @@
     <div class="quantity">En stock : {{ reference.currentRef.quantity }}</div>
     <div class="price">Prix unitaire : {{ reference.currentRef.price | currency: 'EUR' }}</div>
   </div>
-  <form [formGroup]="f">
+  <form [formGroup]="f" (ngSubmit)="submit()">
     <label>
       <div>Quantité à sortir</div>
       <input type="number" formControlName="sellQuantity" />
