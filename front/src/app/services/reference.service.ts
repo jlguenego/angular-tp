@@ -46,5 +46,6 @@ export class ReferenceService {
   sell(sellQuantity: number) {
     this.currentRef.quantity -= sellQuantity;
     this.saveRef();
+    this.save();
   }
 }
