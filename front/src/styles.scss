@@ -9,6 +9,9 @@
 
 body {
   font-family: sans-serif;
+  @media screen and (min-width: 1200px) {
+    font-size: 1.3vw;
+  }
 }
 
 a {
@@ -78,4 +81,3 @@ input {
   border: 0.1em solid #eee;
   width: 100%;
 }
-

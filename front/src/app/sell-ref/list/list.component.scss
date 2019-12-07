@@ -6,25 +6,33 @@ h1 {
   display: flex;
   flex-flow: column;
   width: 100%;
-  max-width: 50em;
+  max-width: 40em;
+  border: 0.1em solid #666;
 }
 
 .row {
   display: grid;
-  grid-template-columns: auto 4em;
+  grid-template-columns: auto 6em;
   grid-template-rows: auto auto auto;
   grid-template-areas:
     'label label'
     'category category'
-    'quantity price';
+    'price quantity';
   padding: 0.5em;
   &:nth-child(odd) {
     background: #eee;
   }
-  cursor: pointer;
-  &:hover {
-    background: #ddd;
+  &:first-child {
+    background: #666;
+    color: white;
   }
+  &:not(:first-child) {
+    cursor: pointer;
+    &:hover {
+      background: #ddd;
+    }
+  }
+
 }
 
 .label {
@@ -36,11 +44,9 @@ h1 {
 }
 .quantity {
   grid-area: quantity;
-  .value {
-    font-weight: bold;
-  }
+  font-weight: bold;
+  text-align: right;
 }
 .price {
   grid-area: price;
-  text-align: right;
 }
