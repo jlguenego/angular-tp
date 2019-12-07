@@ -21,6 +21,10 @@ h1 {
   &:nth-child(odd) {
     background: #eee;
   }
+  cursor: pointer;
+  &:hover {
+    background: #ddd;
+  }
 }
 
 .label {

@@ -6,6 +6,7 @@ import { Reference } from '../interfaces/reference';
 })
 export class ReferenceService {
   references = this.getReferences();
+  currentRef = this.getCurrentRef();
   constructor() {}
 
   add(ref: Reference) {
@@ -23,5 +24,22 @@ export class ReferenceService {
 
   save() {
     localStorage.setItem('references', JSON.stringify(this.references));
+  }
+
+  setCurrentRef(r: Reference) {
+    this.currentRef = r;
+    this.saveRef();
+  }
+
+  getCurrentRef(): Reference {
+    const str = localStorage.getItem('currentRef');
+    if (!str) {
+      return undefined;
+    }
+    return JSON.parse(str) as Reference;
+  }
+
+  saveRef() {
+    localStorage.setItem('currentRef', JSON.stringify(this.currentRef));
   }
 }
