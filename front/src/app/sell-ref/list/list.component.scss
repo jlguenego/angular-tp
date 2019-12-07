@@ -1,0 +1,33 @@
+h1 {
+  font-size: 1.9em;
+}
+
+.table {
+  display: flex;
+  flex-flow: column;
+  width: 100%;
+  max-width: 50em;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: auto 4em;
+  grid-template-rows: 2em 2em 2em;
+  grid-template-areas:
+    'label label'
+    'category category'
+    'quantity price';
+}
+
+.label {
+  grid-area: label;
+}
+.category {
+  grid-area: category;
+}
+.quantity {
+  grid-area: quantity;
+}
+.price {
+  grid-area: price;
+}
