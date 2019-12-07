@@ -32,6 +32,9 @@ h1 {
 }
 .quantity {
   grid-area: quantity;
+  .value {
+    font-weight: bold;
+  }
 }
 .price {
   grid-area: price;
