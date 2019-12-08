@@ -52,4 +52,20 @@ app.post('/references', async (req, res) => {
   }
 });
 
+app.put('/references/:id', async (req, res) => {
+  try {
+    const str = await fs.promises.readFile(filename, {
+      encoding: 'utf8',
+    });
+    const references: Reference[] = JSON.parse(str);
+    const index = references.findIndex(ref => ref.id === +req.body.id);
+    references[index] = req.body;
+    await fs.promises.writeFile(filename, JSON.stringify(references, undefined, 2));
+    res.status(204).end();
+  } catch (e) {
+    console.log(e);
+    res.status(500).send('internal error');
+  }
+});
+
 export { app as ws };

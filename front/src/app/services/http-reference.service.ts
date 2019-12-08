@@ -27,4 +27,14 @@ export class HttpReferenceService extends ReferenceService {
       this.refresh();
     });
   }
+
+  sell(sellQuantity: number) {
+    this.currentRef.quantity -= sellQuantity;
+    this.saveRef();
+    this.http
+      .put<Reference>(`./ws/references/${this.currentRef.id}`, this.currentRef)
+      .subscribe(ref => {
+        this.refresh();
+      });
+  }
 }
