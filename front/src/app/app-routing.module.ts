@@ -11,6 +11,11 @@ const routes: Routes = [
     loadChildren: () =>
       import('./add-stock/add-stock.module').then(m => m.AddStockModule),
   },
+  {
+    path: 'sell-ref',
+    loadChildren: () =>
+      import('./sell-ref/sell-ref.module').then(m => m.SellRefModule),
+  },
 ];
 
 @NgModule({

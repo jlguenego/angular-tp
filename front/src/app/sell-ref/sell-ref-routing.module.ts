@@ -5,9 +5,9 @@ import { SellComponent } from './sell/sell.component';
 import { SuccessComponent } from './success/success.component';
 
 const routes: Routes = [
-  { path: 'sell-ref/list', component: ListComponent },
-  { path: 'sell-ref/sell', component: SellComponent },
-  { path: 'sell-ref/success', component: SuccessComponent },
+  { path: 'list', component: ListComponent },
+  { path: 'sell', component: SellComponent },
+  { path: 'success', component: SuccessComponent },
 ];
 
 @NgModule({
