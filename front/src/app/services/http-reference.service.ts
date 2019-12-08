@@ -14,11 +14,17 @@ export class HttpReferenceService extends ReferenceService {
   }
 
   refresh() {
-    this.http.get<Reference[]>('./ws/references').subscribe(references => {
-      console.log('get successfull');
-      this.references = references;
-      this.save();
-    });
+    this.http
+      .get<Reference[]>('./ws/references', {
+        headers: {
+          Authorization: '123soleil',
+        },
+      })
+      .subscribe(references => {
+        console.log('get successfull');
+        this.references = references;
+        this.save();
+      });
   }
 
   add(ref: Reference) {
