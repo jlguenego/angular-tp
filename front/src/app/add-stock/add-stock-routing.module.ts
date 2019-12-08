@@ -4,8 +4,8 @@ import { FormComponent } from './form/form.component';
 import { SuccessComponent } from './success/success.component';
 
 const routes: Routes = [
-  { path: 'add-stock/form', component: FormComponent },
-  { path: 'add-stock/success', component: SuccessComponent },
+  { path: 'form', component: FormComponent },
+  { path: 'success', component: SuccessComponent },
 ];
 
 @NgModule({
