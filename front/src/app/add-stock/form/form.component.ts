@@ -21,8 +21,12 @@ export class FormComponent implements OnInit {
 
   ngOnInit() {}
 
-  submit() {
-    this.reference.add(this.f.value as Reference);
-    this.router.navigateByUrl('/add-stock/success');
+  async submit() {
+    try {
+      await this.reference.add(this.f.value as Reference);
+      this.router.navigateByUrl('/add-stock/success');
+    } catch (e) {
+      this.router.navigateByUrl('/error');
+    }
   }
 }

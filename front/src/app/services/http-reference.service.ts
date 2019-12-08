@@ -27,11 +27,11 @@ export class HttpReferenceService extends ReferenceService {
       });
   }
 
-  add(ref: Reference) {
-    this.http.post<Reference>('./ws/references', ref).subscribe(reference => {
-      console.log('post successfull');
-      this.refresh();
-    });
+  async add(ref: Reference) {
+    const reference = await this.http
+      .post<Reference>('./ws/references', ref)
+      .toPromise();
+    this.refresh();
   }
 
   sell(sellQuantity: number) {

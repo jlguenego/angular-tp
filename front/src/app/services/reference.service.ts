@@ -9,7 +9,7 @@ export class ReferenceService {
   currentRef = this.getCurrentRef();
   constructor() {}
 
-  add(ref: Reference) {
+  async add(ref: Reference) {
     this.references.push(ref);
     this.save();
   }
