@@ -3,4 +3,5 @@ export interface Reference {
   category: string;
   quantity: number;
   price: number;
+  id?: number;
 }
