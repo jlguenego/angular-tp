@@ -17,7 +17,7 @@ export class HttpReferenceService extends ReferenceService {
     this.http
       .get<Reference[]>('./ws/references', {
         headers: {
-          Authorization: '123soleil',
+          Authorization: 'Bearer 123soleil',
         },
       })
       .subscribe(references => {
