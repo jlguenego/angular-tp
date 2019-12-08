@@ -10,9 +10,19 @@ export class HttpReferenceService extends ReferenceService {
   constructor(private http: HttpClient) {
     super();
     console.log('http reference');
+    this.refresh();
+  }
+
+  refresh() {
     this.http.get<Reference[]>('./ws/references').subscribe(references => {
       this.references = references;
       this.save();
+    });
+  }
+
+  add(ref: Reference) {
+    this.http.post<Reference>('./ws/references', ref).subscribe(reference => {
+      this.refresh();
     });
   }
 }
