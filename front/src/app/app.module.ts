@@ -13,11 +13,13 @@ import { SellRefModule } from './sell-ref/sell-ref.module';
 import { HttpClientModule } from '@angular/common/http';
 import { ReferenceService } from './services/reference.service';
 import { HttpReferenceService } from './services/http-reference.service';
+import { ErrorComponent } from './routes/error/error.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 registerLocaleData(localeFr, 'fr');
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, LegalComponent],
+  declarations: [AppComponent, HomeComponent, LegalComponent, ErrorComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -25,6 +27,7 @@ registerLocaleData(localeFr, 'fr');
     AddStockModule,
     SellRefModule,
     HttpClientModule,
+    FontAwesomeModule,
   ],
   providers: [
     {
