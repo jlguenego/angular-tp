@@ -15,6 +15,7 @@ export class HttpReferenceService extends ReferenceService {
 
   refresh() {
     this.http.get<Reference[]>('./ws/references').subscribe(references => {
+      console.log('get successfull');
       this.references = references;
       this.save();
     });
@@ -22,6 +23,7 @@ export class HttpReferenceService extends ReferenceService {
 
   add(ref: Reference) {
     this.http.post<Reference>('./ws/references', ref).subscribe(reference => {
+      console.log('post successfull');
       this.refresh();
     });
   }
