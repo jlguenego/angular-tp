@@ -1,5 +1,6 @@
 import * as express from 'express';
 import * as fs from 'fs';
+import { auth } from './authentication';
 import { Reference } from '../front/src/app/interfaces/reference';
 
 const app = express.Router();
@@ -21,6 +22,8 @@ function generateNewId(references: Reference[]): number {
   const max = Math.max(...references.map(r => +r.id));
   return max + 1;
 }
+
+app.use(auth());
 
 app.get('/references', async (req, res) => {
   try {
