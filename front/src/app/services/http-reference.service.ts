@@ -1,0 +1,18 @@
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { ReferenceService } from './reference.service';
+import { Reference } from '../interfaces/reference';
+
+@Injectable({
+  providedIn: 'root',
+})
+export class HttpReferenceService extends ReferenceService {
+  constructor(private http: HttpClient) {
+    super();
+    console.log('http reference');
+    this.http.get<Reference[]>('./ws/references').subscribe(references => {
+      this.references = references;
+      this.save();
+    });
+  }
+}
